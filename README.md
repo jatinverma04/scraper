@@ -111,4 +111,5 @@ GET /api/stories?page=1&limit=10
 
 ## Deployment
 
-Coming soon - Render/Railway/Vercel links
+- **Live Demo (Frontend):** [https://scraper-phi-azure.vercel.app/](https://scraper-phi-azure.vercel.app/)
+- **Backend API (Render):** [https://scraper-zxa4.onrender.com](https://scraper-zxa4.onrender.com)
