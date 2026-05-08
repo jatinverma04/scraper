@@ -51,6 +51,7 @@ const runScraper = async () => {
         { upsert: true, new: true }
       );
       upsertCount++;
+    }
     return { scraped: upsertCount };
   } catch (err) {
     throw err;
