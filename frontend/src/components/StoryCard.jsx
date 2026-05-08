@@ -14,7 +14,6 @@ const StoryCard = ({ story, index, bookmarkedIds, onBookmarkToggle }) => {
       await api.post(`/stories/${story._id}/bookmark`);
       onBookmarkToggle(story._id);
     } catch (err) {
-      console.error('Bookmark error:', err.message);
     } finally {
       setIsLoading(false);
     }

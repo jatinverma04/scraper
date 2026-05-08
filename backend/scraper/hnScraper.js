@@ -2,11 +2,10 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const Story = require('../models/Story');
 
-const HN_URL = 'https://news.ycombinator.com';
+const HN_URL = process.env.HN_URL || 'https://news.ycombinator.com';
 
 const runScraper = async () => {
   try {
-    console.log('Running HackerNews scraper...');
     const { data } = await axios.get(HN_URL, {
       headers: {
         'User-Agent':
@@ -41,7 +40,6 @@ const runScraper = async () => {
     });
 
     if (stories.length === 0) {
-      console.log('No stories found — HN structure may have changed.');
       return { scraped: 0 };
     }
 
@@ -53,12 +51,8 @@ const runScraper = async () => {
         { upsert: true, new: true }
       );
       upsertCount++;
-    }
-
-    console.log(`Scraper done: ${upsertCount} stories saved/updated.`);
     return { scraped: upsertCount };
   } catch (err) {
-    console.error('Scraper error:', err.message);
     throw err;
   }
 };
