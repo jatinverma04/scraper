@@ -1,4 +1,4 @@
-# HackerNews Scraper — MERN Stack App
+# HackerNews Scraper - MERN Stack App
 
 A full-stack MERN application that scrapes the top 10 stories from [Hacker News](https://news.ycombinator.com), stores them in MongoDB, and provides a clean React frontend with JWT authentication, bookmarking, and pagination.
 
@@ -6,11 +6,11 @@ A full-stack MERN application that scrapes the top 10 stories from [Hacker News]
 
 ## Features
 
-- 🔍 **Web Scraper** — Auto-scrapes HN top 10 stories on server start; manually triggerable via API
-- 🔐 **JWT Auth** — Register & Login with secure token-based authentication
-- 📑 **Stories API** — Sorted by points, paginated, with single-story fetch
-- 🔖 **Bookmarks** — Toggle bookmarks per user (auth-protected)
-- ⚡ **React Frontend** — Minimal white/grey/black UI with Tailwind CSS
+- **Web Scraper** - Auto-scrapes HN top 10 stories on server start; manually triggerable via API
+- **JWT Auth** - Register & Login with secure token-based authentication
+- **Stories API** - Sorted by points, paginated, with single-story fetch
+- **Bookmarks** - Toggle bookmarks per user (auth-protected)
+- **React Frontend** - Minimal white/grey/black UI with Tailwind CSS
 
 ---
 
@@ -53,7 +53,7 @@ Create a `.env` file inside the `backend/` directory:
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/hn_scraper
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/hn_scraper?retryWrites=true&w=majority
 JWT_SECRET=your_super_secret_jwt_key_here
 ```
 
@@ -63,7 +63,7 @@ JWT_SECRET=your_super_secret_jwt_key_here
 
 ### Prerequisites
 - Node.js >= 18
-- MongoDB running locally (or provide Atlas URI)
+- MongoDB Atlas account (or local MongoDB)
 
 ### 1. Clone the repo
 ```bash
@@ -95,12 +95,12 @@ Backend API: http://localhost:5000
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
-| POST | `/api/auth/register` | ❌ | Register a new user |
-| POST | `/api/auth/login` | ❌ | Login and get JWT token |
-| GET | `/api/stories` | ❌ | Get all stories (sorted by points, paginated) |
-| GET | `/api/stories/:id` | ❌ | Get a single story |
-| POST | `/api/stories/:id/bookmark` | ✅ | Toggle bookmark |
-| POST | `/api/scrape` | ❌ | Manually trigger scraper |
+| POST | `/api/auth/register` | No | Register a new user |
+| POST | `/api/auth/login` | No | Login and get JWT token |
+| GET | `/api/stories` | No | Get all stories (sorted by points, paginated) |
+| GET | `/api/stories/:id` | No | Get a single story |
+| POST | `/api/stories/:id/bookmark` | Yes | Toggle bookmark |
+| POST | `/api/scrape` | No | Manually trigger scraper |
 
 ### Pagination
 ```
@@ -111,4 +111,4 @@ GET /api/stories?page=1&limit=10
 
 ## Deployment
 
-*Coming soon — Render/Railway/Vercel links*
+Coming soon - Render/Railway/Vercel links
